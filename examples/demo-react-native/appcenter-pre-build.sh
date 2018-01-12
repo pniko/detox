@@ -1,10 +1,12 @@
-# requires applesimutils for later version of detox
+echo "Installing applesimutils..."
 brew tap wix/brew
 brew install wix/brew/applesimutils
 
-# install detox globally for cli command
-npm install detox -g
+echo "Installing detox cli..."
+npm install -g detox-cli
 
-# build and run tests
+echo "Building the project..."
 detox build --configuration ios.sim.release
-detox test --configuration ios.sim.release
+
+echo "Executing tests..."
+detox test --configuration ios.sim.release --cleanup
